@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+
+       <h4 class="text-white"> Hi {{ user.username }}! Tu tienes {{ user.age }} años. </h4>
+        <p><a href="{% url 'logout' %}"><button type="button" class = "btn btn-dark "> Log Out </button> </a></p>
+    {% else %}
+       <link href="{% static 'img/login.png' %}">
+        <h4 class="text-white"> Deseas ingresar a este blog?... </h4>
+        <a href="{% url 'login' %}"class="btn btn-outline-dark me-2">Log In</a>
+        <a href="{% url 'signup' %}"class="btn btn-outline-dark me-2">Sing Up</a>
+    {% endif %}
+</div>
+{% endblock content %}

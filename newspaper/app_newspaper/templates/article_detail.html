@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+    <div class="article-entry">
+        <h2 class = "text-white">{{ object.title}}</h2>
+        <p class = "text-white"> Realizado por: {{ object.author }} | {{ object.date }}</p>
+        <p class = "text-white"> {{ object.body }}</p>
+
+    </div>
+    <hr>
+    <h4 class = "text-white">Comentarios</h4>
+    {% for comment in article.comment_set.all %}
+        <p class = "text-white">{{ comment.author}} &middot; {{ comment }}</p>
+    {% endfor %}
+    <hr>
+    <h4 class = "text-white"> Agregar Un Comentario </h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-dark ml-2" type="submit">Guardar</button>
+    </form>
+    <p ><a href="{% url 'article_edit' article.pk %}"><button type="button" class = "btn btn-dark "> Editar </button></a> | 
+    <a href="{% url 'article_delete' article.pk %}"><button type="button" class = "btn btn-dark "> Eliminar </button></a> </p>
+    <p> Volver a <a href="{% url 'article_list' %}"> <button type="button" class = "btn btn-dark "> Todos los articulos </button></a>.</p>
+    
+{% endblock content %}

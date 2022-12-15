@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block title %}ERROR{% endblock title %}
+{% block content %}
+<h1>Lo sentimos, no puedes eliminar este articulo!!. </h1>
+<p><a href="{% url 'article_list' %}">Regresar</a></p>
+{% endblock content %}
