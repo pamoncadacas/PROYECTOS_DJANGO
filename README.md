@@ -26,4 +26,3 @@ y en el link aparece esto:
 ![image](https://user-images.githubusercontent.com/101758866/207951036-fa732ca2-cc71-44f6-a353-211d65c557e4.png)
 y hay se debe ingresar la nueva contraseña y luego aparece el mensaje que ya se restablecio la nueva contraseña.
 
-
